@@ -1,3 +1,27 @@
+@import "./normalize/normalize";
+
+/* Общие стили */
+
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-family: Comfortaa,Arial,sans-serif;
+}
+
+
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -8,6 +32,17 @@
 
 
 // margin
+
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb8 {
   margin-bottom: 8px;
 }
@@ -20,12 +55,8 @@
   margin-bottom: 12px;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
-.m-auto {
-  margin: 0 auto;
+.mb32 {
+  margin-bottom: 32px;
 }
 
 

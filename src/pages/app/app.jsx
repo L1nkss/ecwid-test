@@ -35,7 +35,7 @@ const App = () => {
     <div className="app">
       <Header />
       <div className="container pt32">
-        <Upload classContainer="m-auto" addPicture={addPicture} />
+        <Upload classContainer="mb32 mx-auto" addPicture={addPicture} />
         <PhotoGallery images={images} deletePicture={deletePicture} addPicture={addPicture} />
       </div>
     </div>
