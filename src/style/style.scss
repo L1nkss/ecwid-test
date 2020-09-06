@@ -1,0 +1,44 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+
+/*   Атомарные классы  */
+
+
+// margin
+.mb8 {
+  margin-bottom: 8px;
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+
+.mb12 {
+  margin-bottom: 12px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.mb32 {
+  margin-bottom: 32px;
+}
+
+
+// Флекс
+.flex {
+  display: flex;
+
+  &--column {
+    flex-direction: column;
+  }
+}

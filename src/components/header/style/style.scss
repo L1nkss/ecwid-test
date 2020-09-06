@@ -1,0 +1,10 @@
+.header {
+    padding: 16px 32px;
+    color: #fff;
+    background: linear-gradient(145deg, #253c77 55%, #f4365f 100%);
+    box-shadow: 0 2px 20px -5px #253c77;
+
+    &__container {
+        text-align: center;
+    }
+}
