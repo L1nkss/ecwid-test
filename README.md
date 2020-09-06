@@ -1,4 +1,4 @@
-Посмотреть выложенное приложение можно [DEMO](https://l1nkss.github.io/ecwid-test/)
+Посмотреть выложенное приложение можно тут: [DEMO](https://l1nkss.github.io/ecwid-test/)
 
 Установка приложения
 
