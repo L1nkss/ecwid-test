@@ -38,12 +38,15 @@ const Upload = (props) => {
     if (textPath === '') {
       return;
     }
+    setJsonLoader(true);
     const match = checkUrlRegEx.test(textPath);
 
     if (match) {
       handleUrl(textPath, props.addPicture);
       textRef.current.value = '';
     }
+
+    setJsonLoader(false);
   };
 
   const onFileInputHandler = (evt) => {

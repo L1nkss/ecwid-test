@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import PhotoGallery from '../../components/photo-gallery/photo-gallery';
 import Header from '../../components/header/header';
@@ -35,8 +34,8 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      <div className="container app__container">
-        <Upload classContainer="app__upload" addPicture={addPicture} />
+      <div className="container pt32">
+        <Upload classContainer="m-auto" addPicture={addPicture} />
         <PhotoGallery images={images} deletePicture={deletePicture} addPicture={addPicture} />
       </div>
     </div>
