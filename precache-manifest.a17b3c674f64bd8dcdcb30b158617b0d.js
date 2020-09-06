@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "03efa2ffeb612f6d35ab82f3df1ce76d",
+    "revision": "83436fb166e553a96163a67bc8fc684f",
     "url": "/ecwid-test/index.html"
   },
   {
