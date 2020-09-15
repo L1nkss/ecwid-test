@@ -28,7 +28,7 @@ const PhotoGallery = (props) => {
         <span className="photo-gallery__item-close" onClick={() => props.deletePicture(image.id)}>
           <i className="fas fa-trash-alt" />
         </span>
-        <img className="photo-gallery__item-img" width={widthBase} height={200} src={image.url} alt="Изображение" style={{ flexGrow: ratio }} />
+        <img className="photo-gallery__item-img" width={widthBase} height={200} src={image.url} alt="Изображение" style={{ flexGrow: 1 }} />
       </div>
     );
   };

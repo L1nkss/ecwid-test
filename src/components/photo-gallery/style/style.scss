@@ -7,6 +7,7 @@
     &__item {
         margin-right: 16px;
         margin-bottom: 16px;
+        background-color: red;
 
         &:hover {
             .photo-gallery__item-img {
@@ -27,6 +28,7 @@
     &__item-img {
         max-width: 100%;
         height: auto;
+        display: block;
     }
 
     &__item {
