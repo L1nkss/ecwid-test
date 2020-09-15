@@ -1,7 +1,9 @@
-.app__upload {
-  margin: 0 auto 32px;
-}
+.app {
+  &__content {
+    padding-top: 32px;
+  }
 
-.app__container {
-  padding-top: 36px;
+  &__upload-block {
+    margin: 0 auto 32px;
+  }
 }

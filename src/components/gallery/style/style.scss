@@ -1,19 +1,20 @@
-.photo-gallery {
+.gallery {
     position: relative;
     min-height: 320px;
     display: flex;
     flex-wrap: wrap;
+    gap: 16px;
 
     &__item {
-        margin-right: 16px;
-        margin-bottom: 16px;
 
         &:hover {
-            .photo-gallery__item-img {
+            background-image: none;
+
+            .gallery__item-img {
                 opacity: .3;
             }
 
-            .photo-gallery__item-close {
+            .gallery__item-icon-close {
                 display: block;
             }
         }
@@ -27,16 +28,20 @@
     &__item-img {
         max-width: 100%;
         height: auto;
+        display: block;
+        background-color: #6DB3F2;
+        background-image: url("../image/placeholder-image.png");
+        background-position: 50% 50%;
     }
 
     &__item {
-        max-width: 100%;
+        max-width: 440px;
         height: auto;
         display: flex;
         position: relative;
     }
 
-    &__item-close {
+    &__item-icon-close {
         position: absolute;
         font-size: 42px;
         top: 50%;
@@ -47,6 +52,7 @@
 
         &:hover {
             color: red;
+            cursor: pointer;
         }
     }
 }

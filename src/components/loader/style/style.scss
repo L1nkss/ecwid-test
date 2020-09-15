@@ -14,12 +14,12 @@ $duration: 1.4s;
   z-index: 5;
   background-color: rgba(black, .4);
 
-  &__circle {
+  &__svg-icon {
     min-height: 35px;
     animation: rotate $duration linear infinite;
   }
 
-  &__path {
+  &__svg-path {
     stroke-dasharray: $offset;
     stroke-dashoffset: 0;
     transform-origin: center;

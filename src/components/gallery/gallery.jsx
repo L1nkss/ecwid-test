@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 import './style/style.scss';
 import PropTypes from 'prop-types';
-import handleUrl from '../../utils/utils';
+import { handleUrl, fileHandler } from '../../utils/utils';
+import BASE_IMAGE_HEIGHT from '../../constants/constants';
 
-const PhotoGallery = (props) => {
+const Gallery = (props) => {
   const handleDrop = (evt) => {
     evt.preventDefault();
 
@@ -14,28 +15,32 @@ const PhotoGallery = (props) => {
       return;
     }
 
-    for (let i = 0; i < evt.dataTransfer.items.length; i++) {
-      const url = URL.createObjectURL(evt.dataTransfer.items[i].getAsFile());
-      handleUrl(url, props.addPicture);
-    }
+    evt.dataTransfer.files.forEach((file) => fileHandler(file, props.addPicture));
   };
   const createImage = (image) => {
     const ratio = image.width / image.height;
-    const widthBase = ratio * 200;
+    const widthBase = ratio * BASE_IMAGE_HEIGHT;
 
     return (
-      <div className="photo-gallery__item" style={{ flexGrow: ratio }} key={image.id}>
-        <span className="photo-gallery__item-close" onClick={() => props.deletePicture(image.id)}>
+      <div className="gallery__item" style={{ flexGrow: ratio }} key={image.id}>
+        <span className="gallery__item-icon-close" onClick={() => props.deletePicture(image.id)}>
           <i className="fas fa-trash-alt" />
         </span>
-        <img className="photo-gallery__item-img" width={widthBase} height={200} src={image.url} alt="Изображение" style={{ flexGrow: ratio }} />
+        <img
+          className="gallery__item-img"
+          width={widthBase}
+          height={BASE_IMAGE_HEIGHT}
+          src={image.url}
+          alt="Изображение"
+          style={{ flexGrow: 1 }}
+        />
       </div>
     );
   };
 
   return (
     <div
-      className="photo-gallery"
+      className="gallery"
       draggable
       onDragOver={(evt) => evt.preventDefault()}
       onDrop={handleDrop}
@@ -45,7 +50,7 @@ const PhotoGallery = (props) => {
   );
 };
 
-PhotoGallery.propTypes = {
+Gallery.propTypes = {
   addPicture: PropTypes.func.isRequired,
   deletePicture: PropTypes.func.isRequired,
   images: PropTypes.arrayOf(PropTypes.shape({
@@ -56,4 +61,4 @@ PhotoGallery.propTypes = {
   })).isRequired,
 };
 
-export default PhotoGallery;
+export default Gallery;
