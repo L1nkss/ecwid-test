@@ -81,21 +81,21 @@ const Upload = (props) => {
   };
 
   return (
-    <form className={`upload ${props.classContainer}`}>
+    <form className={`upload-block ${props.classContainer}`}>
       {isLoading && <Loader />}
       <div className="mb12">
         <label htmlFor="url">Введите url картинки</label>
-        <div className="upload__text mt8">
+        <div className="upload-block__url mt8">
           <input
             disabled={isLoading}
             ref={textRef}
-            className="upload__input-text"
+            className="upload-block__url-input"
             id="url"
             type="text"
             placeholder="http://"
           />
           <button
-            className="upload__button"
+            className="upload-block__button"
             type="button"
             onClick={onTextInputHandler}
             disabled={isLoading}
@@ -107,20 +107,20 @@ const Upload = (props) => {
       <div>
         <label htmlFor="file">Загрузите файл</label>
         <div
-          className="upload__file mt8"
+          className="upload-block__drop-loader mt8"
           onDragOver={(evt) => evt.preventDefault()}
           onDrop={onFileInputHandler}
         >
           <input
             ref={fileRef}
             disabled={isLoading}
-            className="upload__file-input"
+            className="upload-block__file-input"
             type="file"
             id="file"
             multiple
             onChange={onFileInputHandler}
           />
-          <div className={`upload__file-wrapper ${isFileError ? 'upload__file-wrapper--error' : ''}`}>
+          <div className={`upload-block__file-wrapper ${isFileError ? 'upload__file-wrapper--error' : ''}`}>
             <div>{isFileError ? 'Загрузите json, png или jpeg файл' : 'Загрузить'}</div>
           </div>
         </div>
