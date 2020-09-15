@@ -3,9 +3,18 @@
     min-height: 320px;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    margin: 0 -4px;
+
+    @media screen and (max-width: 500px) {
+        margin: 0;
+    }
 
     &__item {
+        max-width: 440px;
+        height: auto;
+        display: flex;
+        position: relative;
+        margin: 0 4px 16px;
 
         &:hover {
             background-image: none;
@@ -20,7 +29,7 @@
         }
 
         @media screen and (max-width: 500px) {
-            margin-right: 0;
+            margin: 0 0 16px;
         }
     }
 
@@ -32,13 +41,6 @@
         background-color: #6DB3F2;
         background-image: url("../image/placeholder-image.png");
         background-position: 50% 50%;
-    }
-
-    &__item {
-        max-width: 440px;
-        height: auto;
-        display: flex;
-        position: relative;
     }
 
     &__item-icon-close {
