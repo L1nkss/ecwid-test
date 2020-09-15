@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ecwid-test/static/css/main.c1269d0a.chunk.css",
+    "main.css": "/ecwid-test/static/css/main.f76bd5a4.chunk.css",
     "main.js": "/ecwid-test/static/js/main.7cc070b6.chunk.js",
     "main.js.map": "/ecwid-test/static/js/main.7cc070b6.chunk.js.map",
     "runtime-main.js": "/ecwid-test/static/js/runtime-main.b56a2bc7.js",
@@ -8,15 +8,15 @@
     "static/js/2.bb944a93.chunk.js": "/ecwid-test/static/js/2.bb944a93.chunk.js",
     "static/js/2.bb944a93.chunk.js.map": "/ecwid-test/static/js/2.bb944a93.chunk.js.map",
     "index.html": "/ecwid-test/index.html",
-    "precache-manifest.5b5983f2e8e6333411724f9ed2a0b95e.js": "/ecwid-test/precache-manifest.5b5983f2e8e6333411724f9ed2a0b95e.js",
+    "precache-manifest.5237cb7f47babec0905cfc3ca3fe94c7.js": "/ecwid-test/precache-manifest.5237cb7f47babec0905cfc3ca3fe94c7.js",
     "service-worker.js": "/ecwid-test/service-worker.js",
-    "static/css/main.c1269d0a.chunk.css.map": "/ecwid-test/static/css/main.c1269d0a.chunk.css.map",
+    "static/css/main.f76bd5a4.chunk.css.map": "/ecwid-test/static/css/main.f76bd5a4.chunk.css.map",
     "static/js/2.bb944a93.chunk.js.LICENSE.txt": "/ecwid-test/static/js/2.bb944a93.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b56a2bc7.js",
     "static/js/2.bb944a93.chunk.js",
-    "static/css/main.c1269d0a.chunk.css",
+    "static/css/main.f76bd5a4.chunk.css",
     "static/js/main.7cc070b6.chunk.js"
   ]
 }
