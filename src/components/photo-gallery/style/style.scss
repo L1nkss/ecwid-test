@@ -1,4 +1,4 @@
-.photo-gallery {
+.gallery {
     position: relative;
     min-height: 320px;
     display: flex;
@@ -10,11 +10,11 @@
         &:hover {
             background-image: none;
 
-            .photo-gallery__item-img {
+            .gallery__item-img {
                 opacity: .3;
             }
 
-            .photo-gallery__item-close {
+            .gallery__item-icon-close {
                 display: block;
             }
         }
@@ -41,7 +41,7 @@
         position: relative;
     }
 
-    &__item-close {
+    &__item-icon-close {
         position: absolute;
         font-size: 42px;
         top: 50%;

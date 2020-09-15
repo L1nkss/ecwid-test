@@ -17,13 +17,13 @@ const Upload = (props) => {
     const fileReader = new FileReader();
     fileReader.readAsText(json, 'UTF-8');
     fileReader.onload = ((evt) => {
-      const test = JSON.parse(evt.target.result);
+      const values = JSON.parse(evt.target.result);
       const result = [];
 
       // Проходим по json файлу, чтобы не быть привязанным к ключу galleryImages
-      for (const key in test) {
-        if (Object.prototype.hasOwnProperty.call(test, key)) {
-          test[key].map((element) => result.push(element));
+      for (const key in values) {
+        if (Object.prototype.hasOwnProperty.call(values, key)) {
+          values[key].map((element) => result.push(element));
         }
       }
 

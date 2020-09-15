@@ -24,18 +24,18 @@ const PhotoGallery = (props) => {
     const widthBase = ratio * 200;
 
     return (
-      <div className="photo-gallery__item" style={{ flexGrow: ratio }} key={image.id}>
-        <span className="photo-gallery__item-close" onClick={() => props.deletePicture(image.id)}>
+      <div className="gallery__item" style={{ flexGrow: ratio }} key={image.id}>
+        <span className="gallery__item-icon-close" onClick={() => props.deletePicture(image.id)}>
           <i className="fas fa-trash-alt" />
         </span>
-        <img className="photo-gallery__item-img" width={widthBase} height={200} src={image.url} alt="Изображение" style={{ flexGrow: 1 }} />
+        <img className="gallery__item-img" width={widthBase} height={200} src={image.url} alt="Изображение" style={{ flexGrow: 1 }} />
       </div>
     );
   };
 
   return (
     <div
-      className="photo-gallery"
+      className="gallery"
       draggable
       onDragOver={(evt) => evt.preventDefault()}
       onDrop={handleDrop}
