@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './style/style.scss';
 import PropTypes from 'prop-types';
 import handleUrl from '../../utils/utils';

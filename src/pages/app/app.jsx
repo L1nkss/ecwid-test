@@ -5,9 +5,7 @@ import Upload from '../../components/upload/upload';
 
 import './style/style.scss';
 
-const createID = () => {
-  return `_${Math.random().toString(36).substr(2, 9)}`;
-};
+const createID = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -22,9 +20,7 @@ const App = () => {
   const addPicture = (pictures) => {
     // Если пришел массив(json файл), то обрабатываем как массив
     if (Array.isArray(pictures)) {
-      const result = pictures.map((picture) => {
-        return { ...picture, id: createID() };
-      });
+      const result = pictures.map((picture) => ({ ...picture, id: createID() }));
       setImages([...images, ...result]);
     } else {
       images.push({ ...pictures, id: createID() });

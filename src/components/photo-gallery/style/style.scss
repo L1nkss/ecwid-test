@@ -7,9 +7,11 @@
     &__item {
         margin-right: 16px;
         margin-bottom: 16px;
-        background-color: red;
+        background-image: url("../image/placeholder-image.png");
+        background-position: 50% 50%;
 
         &:hover {
+            background-image: none;
             .photo-gallery__item-img {
                 opacity: .3;
             }
