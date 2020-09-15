@@ -3,7 +3,7 @@ import './style/style.scss';
 import PropTypes from 'prop-types';
 import { handleUrl } from '../../utils/utils';
 
-const PhotoGallery = (props) => {
+const Gallery = (props) => {
   const handleDrop = (evt) => {
     evt.preventDefault();
 
@@ -45,7 +45,7 @@ const PhotoGallery = (props) => {
   );
 };
 
-PhotoGallery.propTypes = {
+Gallery.propTypes = {
   addPicture: PropTypes.func.isRequired,
   deletePicture: PropTypes.func.isRequired,
   images: PropTypes.arrayOf(PropTypes.shape({
@@ -56,4 +56,4 @@ PhotoGallery.propTypes = {
   })).isRequired,
 };
 
-export default PhotoGallery;
+export default Gallery;

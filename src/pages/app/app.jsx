@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import PhotoGallery from '../../components/photo-gallery/photo-gallery';
+import Gallery from '../../components/gallery/gallery';
 import Header from '../../components/header/header';
 import Upload from '../../components/upload/upload';
 import { addIdToItem } from '../../utils/utils';
-
-import './style/style.scss';
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -27,13 +25,13 @@ const App = () => {
   };
 
   return (
-    <div className="app">
+    <>
       <Header />
-      <div className="container pt32">
+      <div className="content-wrapper pt32">
         <Upload classContainer="mb32 mx-auto" addPicture={addPicture} />
-        <PhotoGallery images={images} deletePicture={deletePicture} addPicture={addPicture} />
+        <Gallery images={images} deletePicture={deletePicture} addPicture={addPicture} />
       </div>
-    </div>
+    </>
   );
 };
 
