@@ -3,7 +3,7 @@ import './style/style.scss';
 
 const Header = () => (
   <div className="header">
-    <div className="container header__container">
+    <div className="container ta-c">
       <h1>Photo Gallery</h1>
     </div>
   </div>

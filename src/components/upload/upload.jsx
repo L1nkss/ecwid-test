@@ -49,11 +49,7 @@ const Upload = (props) => {
     setJsonLoader(false);
   };
 
-  const onFileInputHandler = (evt) => {
-    evt.preventDefault();
-    setJsonLoader(true);
-    const file = fileRef.current.files[0] || evt.dataTransfer.items[0].getAsFile();
-
+  const fileHandler = (file) => {
     switch (file.type) {
       case 'image/jpeg':
       case 'image/png':
@@ -68,6 +64,14 @@ const Upload = (props) => {
         setFileError(true);
         break;
     }
+  };
+
+  const onFileInputHandler = (evt) => {
+    evt.preventDefault();
+    setJsonLoader(true);
+    const files = fileRef.current.files.length ? fileRef.current.files : evt.dataTransfer.files;
+
+    files.forEach(fileHandler);
 
     // Убираем файл, который был в input'e, чтобы устранить дублирование при drag & drop
     fileRef.current.value = '';
@@ -114,6 +118,7 @@ const Upload = (props) => {
               className="upload__file-input"
               type="file"
               id="file"
+              multiple
               onChange={onFileInputHandler}
             />
             <div className={`upload__file-wrapper ${isFileError ? 'upload__file-wrapper--error' : ''}`}>
