@@ -14,11 +14,17 @@ html {
 }
 
 body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   min-width: 320px;
   margin: 0;
   padding: 0;
   font-weight: 400;
   font-family: Comfortaa,Arial,sans-serif;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 

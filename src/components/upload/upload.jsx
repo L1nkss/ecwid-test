@@ -50,6 +50,7 @@ const Upload = (props) => {
   };
 
   const fileHandler = (file) => {
+    console.log(file);
     switch (file.type) {
       case 'image/jpeg':
       case 'image/png':
@@ -82,48 +83,46 @@ const Upload = (props) => {
 
   return (
     <form className={`upload ${props.classContainer}`}>
-      <div>
-        {isLoading && <Loader />}
-        <div className="mb12">
-          <label htmlFor="url">Введите url картинки</label>
-          <div className="upload__text mt8">
-            <input
-              disabled={isLoading}
-              ref={textRef}
-              className="upload__input-text"
-              id="url"
-              type="text"
-              placeholder="http://"
-            />
-            <button
-              className="upload__button"
-              type="button"
-              onClick={onTextInputHandler}
-              disabled={isLoading}
-            >
-              Загрузить
-            </button>
-          </div>
-        </div>
-        <div>
-          <label htmlFor="file">Загрузите файл</label>
-          <div
-            className="upload__file mt8"
-            onDragOver={(evt) => evt.preventDefault()}
-            onDrop={onFileInputHandler}
+      {isLoading && <Loader />}
+      <div className="mb12">
+        <label htmlFor="url">Введите url картинки</label>
+        <div className="upload__text mt8">
+          <input
+            disabled={isLoading}
+            ref={textRef}
+            className="upload__input-text"
+            id="url"
+            type="text"
+            placeholder="http://"
+          />
+          <button
+            className="upload__button"
+            type="button"
+            onClick={onTextInputHandler}
+            disabled={isLoading}
           >
-            <input
-              ref={fileRef}
-              disabled={isLoading}
-              className="upload__file-input"
-              type="file"
-              id="file"
-              multiple
-              onChange={onFileInputHandler}
-            />
-            <div className={`upload__file-wrapper ${isFileError ? 'upload__file-wrapper--error' : ''}`}>
-              <div>{isFileError ? 'Загрузите json, png или jpeg файл' : 'Загрузить'}</div>
-            </div>
+            Загрузить
+          </button>
+        </div>
+      </div>
+      <div>
+        <label htmlFor="file">Загрузите файл</label>
+        <div
+          className="upload__file mt8"
+          onDragOver={(evt) => evt.preventDefault()}
+          onDrop={onFileInputHandler}
+        >
+          <input
+            ref={fileRef}
+            disabled={isLoading}
+            className="upload__file-input"
+            type="file"
+            id="file"
+            multiple
+            onChange={onFileInputHandler}
+          />
+          <div className={`upload__file-wrapper ${isFileError ? 'upload__file-wrapper--error' : ''}`}>
+            <div>{isFileError ? 'Загрузите json, png или jpeg файл' : 'Загрузить'}</div>
           </div>
         </div>
       </div>

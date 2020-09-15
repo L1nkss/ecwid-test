@@ -27,6 +27,7 @@ const App = () => {
       setImages([...images]);
     }
   };
+
   return (
     <div className="app">
       <Header />
