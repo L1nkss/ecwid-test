@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import PhotoGallery from '../../components/photo-gallery/photo-gallery';
 import Header from '../../components/header/header';
 import Upload from '../../components/upload/upload';
+import { addIdToItem } from "../../utils/utils";
 
 import './style/style.scss';
-
-const createID = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -19,13 +18,9 @@ const App = () => {
 
   const addPicture = (pictures) => {
     // Если пришел массив(json файл), то обрабатываем как массив
-    if (Array.isArray(pictures)) {
-      const result = pictures.map((picture) => ({ ...picture, id: createID() }));
-      setImages([...images, ...result]);
-    } else {
-      images.push({ ...pictures, id: createID() });
-      setImages([...images]);
-    }
+    const result = Array.isArray(pictures) ? pictures.map(addIdToItem) : [...images, addIdToItem(pictures)];
+
+    setImages(((prevState) => ([...prevState, ...result])));
   };
 
   return (

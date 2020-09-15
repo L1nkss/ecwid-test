@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/style.scss';
 import PropTypes from 'prop-types';
-import handleUrl from '../../utils/utils';
+import { handleUrl } from '../../utils/utils';
 
 const PhotoGallery = (props) => {
   const handleDrop = (evt) => {

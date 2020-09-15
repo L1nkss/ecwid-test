@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import handleUrl from '../../utils/utils';
+import { handleUrl } from '../../utils/utils';
 import './style/style.scss';
 import Loader from '../loader/loader';
 
@@ -50,7 +50,6 @@ const Upload = (props) => {
   };
 
   const fileHandler = (file) => {
-    console.log(file);
     switch (file.type) {
       case 'image/jpeg':
       case 'image/png':

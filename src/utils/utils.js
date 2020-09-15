@@ -16,4 +16,8 @@ const handleUrl = (url, callback) => {
   img.src = url;
 };
 
-export default handleUrl;
+const createID = () => `_${Math.random().toString(36).substr(2, 9)}`;
+
+const addIdToItem = (item) => ({ ...item, id: createID()});
+
+export { handleUrl, addIdToItem};
