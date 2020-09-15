@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { handleUrl } from '../../utils/utils';
+import { handleUrl, fileHandler } from '../../utils/utils';
 import './style/style.scss';
 import Loader from '../loader/loader';
 
@@ -12,25 +12,6 @@ const Upload = (props) => {
   const fileRef = useRef();
   const textRef = useRef();
   const [isFileError, setFileError] = useState(false);
-
-  const handleJsonFile = (json, callback) => {
-    const fileReader = new FileReader();
-    fileReader.readAsText(json, 'UTF-8');
-    fileReader.onload = ((evt) => {
-      const values = JSON.parse(evt.target.result);
-      const result = [];
-
-      // Проходим по json файлу, чтобы не быть привязанным к ключу galleryImages
-      for (const key in values) {
-        if (Object.prototype.hasOwnProperty.call(values, key)) {
-          values[key].map((element) => result.push(element));
-        }
-      }
-
-      // Вызываем callback функцию для добавления Json'a
-      callback(result, 'json');
-    });
-  };
 
   const onTextInputHandler = () => {
     const textPath = textRef.current.value;
@@ -49,29 +30,17 @@ const Upload = (props) => {
     setJsonLoader(false);
   };
 
-  const fileHandler = (file) => {
-    switch (file.type) {
-      case 'image/jpeg':
-      case 'image/png':
-        setFileError(false);
-        handleUrl(URL.createObjectURL(file), props.addPicture);
-        break;
-      case 'application/json':
-        setFileError(false);
-        handleJsonFile(file, props.addPicture);
-        break;
-      default:
-        setFileError(true);
-        break;
-    }
-  };
-
   const onFileInputHandler = (evt) => {
     evt.preventDefault();
     setJsonLoader(true);
     const files = fileRef.current.files.length ? fileRef.current.files : evt.dataTransfer.files;
 
-    files.forEach(fileHandler);
+    try {
+      setFileError(false);
+      files.forEach((file) => fileHandler(file, props.addPicture));
+    } catch (e) {
+      setFileError(true);
+    }
 
     // Убираем файл, который был в input'e, чтобы устранить дублирование при drag & drop
     fileRef.current.value = '';
@@ -83,9 +52,9 @@ const Upload = (props) => {
   return (
     <form className={`upload-block ${props.classContainer}`}>
       {isLoading && <Loader />}
-      <div className="mb12">
-        <label htmlFor="url">Введите url картинки</label>
-        <div className="upload-block__url mt8">
+      <div className="upload-block__field">
+        <label className="upload-block__label" htmlFor="url">Введите url картинки</label>
+        <div className="upload-block__url">
           <input
             disabled={isLoading}
             ref={textRef}
@@ -104,23 +73,23 @@ const Upload = (props) => {
           </button>
         </div>
       </div>
-      <div>
-        <label htmlFor="file">Загрузите файл</label>
+      <div className="upload-block__field">
+        <label className="upload-block__label" htmlFor="file">Загрузите файл</label>
         <div
-          className="upload-block__drop-loader mt8"
+          className="upload-block__drop-area"
           onDragOver={(evt) => evt.preventDefault()}
           onDrop={onFileInputHandler}
         >
           <input
             ref={fileRef}
             disabled={isLoading}
-            className="upload-block__file-input"
+            className="upload-block__drop-area-input"
             type="file"
             id="file"
             multiple
             onChange={onFileInputHandler}
           />
-          <div className={`upload-block__file-wrapper ${isFileError ? 'upload__file-wrapper--error' : ''}`}>
+          <div className={`upload-block__drop-area-inner ${isFileError ? 'upload-block__drop-area-inner--error' : ''}`}>
             <div>{isFileError ? 'Загрузите json, png или jpeg файл' : 'Загрузить'}</div>
           </div>
         </div>

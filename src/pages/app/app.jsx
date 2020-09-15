@@ -4,6 +4,8 @@ import Header from '../../components/header/header';
 import Upload from '../../components/upload/upload';
 import { addIdToItem } from '../../utils/utils';
 
+import './style/style.scss'
+
 const App = () => {
   const [images, setImages] = useState([]);
 
@@ -25,13 +27,13 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="app">
       <Header />
-      <div className="content-wrapper pt32">
-        <Upload classContainer="mb32 mx-auto" addPicture={addPicture} />
+      <div className="content-wrapper app__content">
+        <Upload classContainer="app__upload-block" addPicture={addPicture} />
         <Gallery images={images} deletePicture={deletePicture} addPicture={addPicture} />
       </div>
-    </>
+    </div>
   );
 };
 

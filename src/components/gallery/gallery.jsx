@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/style.scss';
 import PropTypes from 'prop-types';
-import { handleUrl } from '../../utils/utils';
+import { handleUrl, fileHandler } from '../../utils/utils';
 import BASE_IMAGE_HEIGHT from '../../constants/constants';
 
 const Gallery = (props) => {
@@ -15,10 +15,7 @@ const Gallery = (props) => {
       return;
     }
 
-    for (let i = 0; i < evt.dataTransfer.items.length; i++) {
-      const url = URL.createObjectURL(evt.dataTransfer.items[i].getAsFile());
-      handleUrl(url, props.addPicture);
-    }
+    evt.dataTransfer.files.forEach((file) => fileHandler(file, props.addPicture));
   };
   const createImage = (image) => {
     const ratio = image.width / image.height;
