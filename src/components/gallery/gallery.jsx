@@ -9,7 +9,8 @@ const Gallery = (props) => {
     evt.preventDefault();
 
     // Если мы делаем drag and drop уже существующего изображения (находится в галерее)
-    if (evt.dataTransfer.items[0].type === 'text/plain') {
+    // text/uri-list - для macOC
+    if (evt.dataTransfer.items[0].type === 'text/plain' || evt.dataTransfer.items[0].type === 'text/uri-list') {
       const url = evt.dataTransfer.getData('URL');
       handleUrl(url, props.addPicture);
       return;

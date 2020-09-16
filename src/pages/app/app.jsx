@@ -4,7 +4,7 @@ import Header from '../../components/header/header';
 import Upload from '../../components/upload/upload';
 import { addIdToItem } from '../../utils/utils';
 
-import './style/style.scss'
+import './style/style.scss';
 
 const App = () => {
   const [images, setImages] = useState([]);
