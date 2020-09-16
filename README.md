@@ -3,7 +3,7 @@
 Установка приложения
 
 1 Склонировать проект
-### `git@github.com:L1nkss/ecwid-test.git`
+### `git clone git@github.com:L1nkss/ecwid-test.git`
 
 2 Установить завимимости
 ### `npm i`

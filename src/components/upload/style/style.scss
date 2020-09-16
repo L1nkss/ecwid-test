@@ -75,7 +75,7 @@
 
     &:hover,
     &:focus {
-      + .upload-block__drop-area-wrapper {
+      + .upload-block__drop-area-inner {
           border-color: blue;
       }
     }
